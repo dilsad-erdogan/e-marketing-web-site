@@ -7,20 +7,18 @@ import AdminPage from "./pages/AdminPage";
 
 function App() {
   return (
-    <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 overflow-hidden">
-      <Router>
-        <Routes>
-          {/* User Pages */}
-          <Route path="/" element={<MainPage />} />
-          <Route path="/basket" element={<BasketPage />} />
-          <Route path="/order" element={<OrderPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
+    <Router>
+      <Routes>
+        {/* User Pages */}
+        <Route path="/" element={<MainPage />} />
+        <Route path="/basket" element={<BasketPage />} />
+        <Route path="/order" element={<OrderPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
 
-          {/* Admin Pages */}
-          <Route path="/admin" element={<AdminPage />} />
-        </Routes>
-      </Router>
-    </div>
+        {/* Admin Pages */}
+        <Route path="/admin" element={<AdminPage />} />
+      </Routes>
+    </Router>
   )
 }
 

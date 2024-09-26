@@ -1,7 +1,88 @@
+import { useState } from "react";
+import { IoMdSearch } from "react-icons/io";
+import { FaBars, FaTimes } from "react-icons/fa";
+import DarkMode from "./DarkMode";
+
+const MenuLinks = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Basket",
+    link: "/basket",
+  },
+  {
+    name: "Order",
+    link: "/order",
+  },
+  {
+    name: "Profile",
+    link: "/profile",
+  },
+];
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <div>Navbar</div>
+    <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40">
+      <div className="py-4">
+        <div className="container flex justify-between items-center">
+          {/* Logo and links section */}
+          <div className="flex items-center gap-4">
+            <a href="/" className="text-red-600 font-semibold tracking-widest text-2xl uppercase sm:text-3xl">E - Marketing</a>
+
+            {/* Hamburger Icon (only shows on small screens) */}
+            <button className="block lg:hidden text-2xl" onClick={toggleMenu}>
+              {menuOpen ? <FaTimes /> : <FaBars />}
+            </button>
+
+            <div className="hidden lg:block">
+              <ul className="flex items-center gap-4">
+                {MenuLinks.map((data) => (
+                  <li key={data.name}>
+                    <a href={data.link} className="inline-block px-4 font-semibold text-gray-500 hover:text-black dark:hover:text-white duration-200">
+                      {" "}
+                      {data.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Mobile menu */}
+            {menuOpen && (
+              <div className="lg:hidden mt-4">
+                <ul className="flex flex-col items-start gap-2">
+                  {MenuLinks.map((data) => (
+                    <li key={data.name}>
+                      <a href={data.link} className="block px-4 py-2 font-semibold text-gray-500 hover:text-black dark:hover:text-white duration-200" >
+                        {data.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+
+          {/* Search and darkMode section */}
+          <div className="flex justify-between items-center gap-4">
+            <div className="relative group hidden sm:block">
+              <input type="text" placeholder="Search" className="search-bar" />
+              <IoMdSearch className="text-xl text-gray-600 group-hover:text-primary dark:text-gray-400 absolute top-1/2 -translate-y-1/2 right-3 duration-200"/>
+            </div>
+
+            <DarkMode />
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 
