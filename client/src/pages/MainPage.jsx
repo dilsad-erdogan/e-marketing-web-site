@@ -4,7 +4,7 @@ import Products from "../components/Products/Products";
 
 const MainPage = () => {
   return (
-    <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 overflow-hidden">
+    <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 overflow-hidden min-h-screen flex flex-col">
       <Navbar />
       <Products />
       <Footer />

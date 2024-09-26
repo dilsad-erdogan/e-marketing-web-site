@@ -4,7 +4,7 @@ import ProductsInBasket from "../components/Products/ProductsInBasket";
 
 const BasketPage = () => {
   return (
-    <div>
+    <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 overflow-hidden min-h-screen flex flex-col">
       <Navbar />
       <ProductsInBasket />
       <Footer />
