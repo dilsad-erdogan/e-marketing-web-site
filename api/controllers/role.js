@@ -4,7 +4,7 @@ async function addRole(req, res) {
     try{
         const { name } = req.body;
 
-        const role = new Todolist({
+        const role = new Role({
             name: name,
             date_time: Date.now(),
             is_active: true
