@@ -14,7 +14,7 @@ const ProductsInOrder = () => {
     <div className="container">
       {message ? (
         <div className="flex justify-center items-center min-h-[50vh]">
-          <h2 className="text-center font-bold text-3xl p-6 border border-gray-300 shadow-lg rounded-lg bg-white">Lütfen önce giriş yapınız!</h2>
+          <h2 className="text-center font-bold text-3xl p-6 border border-gray-300 shadow-lg rounded-lg">Lütfen önce giriş yapınız!</h2>
         </div>
       ) : (
         <div>
