@@ -15,7 +15,7 @@ const Products = () => {
   };
 
   const addProduct = async ( productId ) => {
-    const user = localStorage.getItem('user');
+    const user = localStorage.getItem('profile');
     if(!user) {
       alert('Lütfen önce giriş yapınız!');
       return;

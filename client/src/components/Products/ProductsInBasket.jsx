@@ -4,7 +4,7 @@ const ProductsInBasket = () => {
   const [message, setMessage] = useState(false);
 
   useEffect(() => {
-    const user = localStorage.getItem('user');
+    const user = localStorage.getItem('profile');
     if(!user){
       setMessage(true);
     }

@@ -61,10 +61,8 @@ const loginOrigin = catchAsyncError(async (req, res) => {
             user.loginAttempts += 1;
             if (user.loginAttempts >= 5) {
                 user.lockUntil = Date.now() + 15 * 60 * 1000; // 15 dakika kilitle
-                logger.warn(`Account locked due to multiple failed login attempts - Email: ${email}`);
             }
             await user.save();
-            logger.warn(`Login attempt failed: Incorrect password - Email: ${email}`);
             return res.status(400).json({ success: false, error: 'Invalid email or password.' });
         }
 
