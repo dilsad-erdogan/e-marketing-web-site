@@ -1,11 +1,11 @@
 const OrderInProduct = require('../models/orderINproduct');
-const Product = require('../models/product');
+const Order = require('../models/order');
 const Basket = require('../models/basket');
 
 async function getOIP(req, res) {
     try{
         const id = req.params.id;
-        const oip = await OrderInProduct.find({ product_id: id, is_active: true });
+        const oip = await OrderInProduct.find({ order_id: id, is_active: true });
         
         if(oip) {
             res.status(200).json({ success: true, data: oip });
@@ -20,10 +20,10 @@ async function getOIP(req, res) {
 
 async function addOIP(req, res) {
     try{
-        const { product_id, basket_id } = req.body;
+        const { order_id, basket_id } = req.body;
 
-        const p_id = await Product.findById(product_id);
-        if(!p_id || !p_id.is_active){
+        const o_id = await Order.findById(order_id);
+        if(!o_id || !o_id.is_active){
             const b_id = await Basket.findById(basket_id);
             if(!b_id || !b_id.is_active){
                 return res.status(400).json({ success: false, message: 'OIP not found!' });
@@ -31,7 +31,7 @@ async function addOIP(req, res) {
         }
 
         const oip = new OrderInProduct({
-            product_id: product_id,
+            order_id: order_id,
             basket_id: basket_id,
             date_time: Date.now(),
             is_active: true

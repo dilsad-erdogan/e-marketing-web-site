@@ -84,9 +84,26 @@ async function deleteBasket(req, res) {
     }
 };
 
+async function getBasketId(req, res) {
+    try{
+        const id = req.params.id;
+        const basket = await Basket.findById(id);
+
+        if(basket && basket.is_active === true){
+            res.status(200).json({ success: true, data: basket });
+        } else {
+            res.status(404).json({ success: false, error: 'basket not found!' });
+        }
+    } catch(error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error!' });
+    }
+};
+
 module.exports = {
     getBasket,
     addBasket,
     updateAmount,
-    deleteBasket
+    deleteBasket,
+    getBasketId
 };

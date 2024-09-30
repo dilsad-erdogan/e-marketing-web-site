@@ -3,6 +3,7 @@ const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const rateLimit = require('express-rate-limit');
 const sendToken = require('../utils/sendToken');
+const sendEmail = require('../utils/sendEmail');
 
 const generate2FACode = () => {
     return Math.floor(100000 + Math.random() * 900000).toString();

@@ -61,8 +61,25 @@ async function deleteOrder(req, res) {
     }
 };
 
+async function getOrderId(req, res) {
+    try{
+        const id = req.params.id;
+        const order = await Order.findById(id);
+
+        if(order && order.is_active === true){
+            res.status(200).json({ success: true, data: order });
+        } else {
+            res.status(404).json({ success: false, error: 'order not found!' });
+        }
+    } catch(error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error!' });
+    }
+};
+
 module.exports = {
     getOrder,
     addOrder,
-    deleteOrder
+    deleteOrder,
+    getOrderId
 };

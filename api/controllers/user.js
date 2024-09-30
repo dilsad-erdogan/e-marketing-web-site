@@ -19,6 +19,7 @@ async function updateName(req, res) {
         res.status(500).json({ message: error });
     }
 };
+
 async function updateEmail(req, res) {
     try{
         const id = req.params.id;
@@ -38,6 +39,7 @@ async function updateEmail(req, res) {
         res.status(500).json({ message: error });
     }
 };
+
 async function updatePassword(req, res) {
     try{
         const id = req.params.id;
@@ -57,6 +59,7 @@ async function updatePassword(req, res) {
         res.status(500).json({ message: error });
     }
 };
+
 async function deleteUser(req, res) {
     try{
         const id = req.params.id;
