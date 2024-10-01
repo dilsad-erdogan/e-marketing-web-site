@@ -30,7 +30,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40">
+    <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40 container mx-auto max-w-screen-lg">
       <div className="py-4">
         <div className="container flex justify-between items-center">
           {/* Logo and links section */}

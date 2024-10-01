@@ -21,7 +21,7 @@ const FooterLinks = [
 
 const Footer = () => {
   return (
-    <div className="dark:bg-gray-900 mt-auto">
+    <div className="dark:bg-gray-900 mt-auto container mx-auto max-w-screen-2xl">
         <div className="container">
             <div className="grid md:grid-cols-3 pb-2 pt-4">
                 {/* Company details */}
