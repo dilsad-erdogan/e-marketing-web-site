@@ -19,7 +19,7 @@ async function getOrder(req, res) {
 
 async function addOrder(req, res) {
     try{
-        const { user_id } = req.body;
+        const { user_id, total_price } = req.body;
 
         const id = await User.findById(user_id);
         if(!id || !id.is_active){
@@ -28,6 +28,7 @@ async function addOrder(req, res) {
 
         const order = new Order({
             user_id: user_id,
+            total_price: total_price,
             date_time: Date.now(),
             is_active: true
         });

@@ -96,7 +96,8 @@ const ProductsInBasket = () => {
   const getOrder = async () => {
     try{
       const newOrder = {
-        user_id: id
+        user_id: id,
+        total_price: total
       };
 
       const response = await orderServices.add(newOrder);
@@ -105,7 +106,7 @@ const ProductsInBasket = () => {
       baskets.forEach( async (basket) => {
         const newOIP = {
           order_id: order_id,
-          basket_id: basket._id
+          product_id: basket.product_id
         };
 
         await basketServices.deleted(basket._id);

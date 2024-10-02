@@ -5,6 +5,10 @@ const orderSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    total_price: {
+        type: Number,
+        required: true
+    },
     date_time: {
         type: Date,
         default: Date.now

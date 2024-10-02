@@ -5,7 +5,7 @@ const orderINproductSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    basket_id: {
+    product_id: {
         type: String,
         required: true
     },
