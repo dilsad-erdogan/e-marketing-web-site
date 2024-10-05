@@ -12,6 +12,7 @@ const ProductsInOrder = () => {
     const user = localStorage.getItem("profile");
     if (!user) {
       setMessage(true);
+      return;
     }
 
     let id = JSON.parse(user)._id;
