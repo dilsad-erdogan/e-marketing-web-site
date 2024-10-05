@@ -2,6 +2,7 @@ import { useState } from "react";
 import { IoMdSearch } from "react-icons/io";
 import { FaBars, FaTimes } from "react-icons/fa";
 import DarkMode from "./DarkMode";
+import { useNavigate } from "react-router-dom";
 
 const MenuLinks = [
   {
@@ -24,9 +25,16 @@ const MenuLinks = [
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('profile');
+    navigate('/');
   };
 
   return (
@@ -79,6 +87,8 @@ const Navbar = () => {
             </div>
 
             <DarkMode />
+
+            <button className="bg-red-600 text-white cursor-pointer hover:scale-105 duration-300 py-2 px-8 rounded-full relative z-10" onClick={logout}>LogOut</button>
           </div>
         </div>
       </div>
