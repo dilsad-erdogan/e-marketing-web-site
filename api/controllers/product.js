@@ -2,7 +2,7 @@ const Product = require('../models/product');
 
 async function getProduct(req, res) {
     try {
-        const products = await Product.find();
+        const products = await Product.find({ is_active: true });
 
         if (products) {
             res.status(200).json({ success: true, data: products });
